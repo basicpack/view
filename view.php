@@ -14,15 +14,19 @@ function view($name,$data=null,$print=true){
     $repoName=@$name2[0];
     unset($name2[0]);
     $viewName=implode('/',$name2);
-    $filename2=ROOT.$repoName.'/view/'.$viewName.'.php';
+    $filename2=ROOT.'call/getcall/'.$repoName.'/view/'.$viewName.'.php';
+    $filename3=ROOT.'home/view/'.$viewName.'.php';
     if(file_exists($filename)){
         $output=getViewOutput($filename,$data);
     }elseif(file_exists($filename2)){
         $output=getViewOutput($filename2,$data);
+    }elseif(file_exists($filename3)){
+        $output=getViewOutput($filename3,$data);
     }else{
         $output='<p><b>Erro:</b><br>'.PHP_EOL.'views ';
-        $output.='<b>'.$filename.'</b> and ';
-        $output.='<b>'.$filename2.'</b>';
+        $output.='<b>'.$filename.'</b>,<br>';
+        $output.='<b>'.$filename2.'</b> and<br>';
+        $output.='<b>'.$filename3.'</b>';
         $output.=' not found';
     }
     if($print){
