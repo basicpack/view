@@ -14,7 +14,7 @@ function view($name,$data=null,$print=true){
     $repoName=@$name2[0];
     unset($name2[0]);
     $viewName=implode('/',$name2);
-    $filename2=ROOT.'call/getcall/'.$repoName.'/view/'.$viewName.'.php';
+    $filename2=ROOT.'call/callpack/'.$repoName.'/view/'.$viewName.'.php';
     $filename3=ROOT.'home/view/'.$viewName.'.php';
     if(file_exists($filename)){
         $output=getViewOutput($filename,$data);
